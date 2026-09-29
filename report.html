@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Report Issue · CityFix</title><link rel="stylesheet" href="assets/style.css"></head><body><div class="gridbg"></div><div class="noise"></div>
+<header class="topbar"><a class="brand" href="index.html"><div class="brand-logo">☁</div><div><div class="brand-name">CITY<span>FIX</span></div><span class="brand-sub">SMART CIVIC RESOLUTION</span></div></a><nav class="nav"><a href="index.html">Home</a><a href="report.html">Report</a><a href="track.html">Track</a><a href="admin.html">Authority</a><a href="database.html">Database</a><a href="analytics.html">Analytics</a></nav><div class="profile"><div class="avatar">S</div>Sandip</div></header>
+<main class="container page"><div class="eyebrow">CITIZEN PORTAL</div><h1>Report a civic issue</h1><p class="lead">Tell us what needs fixing. Your report enters the CityFix resolution workflow instantly.</p>
+<div class="glass form-card" style="margin-top:28px"><form id="reportForm" class="form-grid">
+<label>Issue title<input id="title" required placeholder="e.g. Broken streetlight near main gate"></label>
+<label>Category<select id="cat" required><option value="">Select category</option><option>Pothole</option><option>Streetlight</option><option>Water Leakage</option><option>Garbage</option><option>Road Damage</option><option>Other</option></select></label>
+<label>Location<input id="loc" required placeholder="Street, ward or landmark"></label>
+<label>Your name<input id="reporter" placeholder="Citizen"></label>
+<label class="full">Description<textarea id="desc" required placeholder="Describe the problem clearly..."></textarea></label>
+<label class="full">Photo / evidence<input type="file" accept="image/*"></label>
+<div class="full actions"><button class="btn btn-primary">Submit Complaint →</button><span id="msg" class="success"></span></div>
+</form></div>
+</main>
+<footer>CITYFIX · Smart City • Faster Resolution · Round 1 → Round 2 → Round 3</footer><div id="toast" class="toast"></div><script src="assets/app.js"></script><script>
+reportForm.addEventListener("submit",e=>{e.preventDefault();let x=getData(),id="CF-"+(1048+x.length);x.unshift({id,title:title.value,cat:cat.value,loc:loc.value,reporter:reporter.value||"Citizen",status:"Pending",desc:desc.value,date:"29 Sep 2026",priority:"Medium"});saveData(x);msg.textContent="✓ Complaint "+id+" submitted successfully";showToast("Complaint "+id+" created");setTimeout(()=>location.href="track.html",800)})
+</script></body></html>
